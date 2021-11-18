@@ -53,7 +53,8 @@
     <UnityVersion>2020.3.22f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\SpiderController.cs" />
+    <Compile Include="Assets\Scripts\SpiderMoveController.cs" />
+    <Compile Include="Assets\Scripts\SpiderAttackController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
