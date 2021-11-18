@@ -72,7 +72,8 @@ public class SpiderMoveController : MonoBehaviour
         if (transform.position.y < -1)
         {
             PlayAmimationBool("Die", true);
-            die = true;
+            die = true; 
+            moveDirection = Vector3.zero;
         }
         else
         {
