@@ -12,7 +12,7 @@ public class SpiderMoveController : MonoBehaviour
 
     Vector3 moveDirection = Vector3.zero;
 
-    bool push;
+    bool push, die;
 
     void Start()
     {
@@ -21,7 +21,7 @@ public class SpiderMoveController : MonoBehaviour
 
     void Update()
     {
-       if (characterController.isGrounded)
+       if (characterController.isGrounded && !die)
         {
             transform.Rotate(0, Input.GetAxis("Horizontal") * speedRotation, 0);
 
@@ -34,7 +34,7 @@ public class SpiderMoveController : MonoBehaviour
             }
         }
         push = false;
-        Debug.Log("True");
+        
         moveDirection.y -= gravity * Time.deltaTime;
         characterController.Move(moveDirection * Time.deltaTime);
         PlayAnimation();
@@ -45,7 +45,6 @@ public class SpiderMoveController : MonoBehaviour
     public void Push()
     {
        push = true;
-       Debug.Log("True");
     }
 
     void PlayAnimation() 
@@ -69,13 +68,16 @@ public class SpiderMoveController : MonoBehaviour
 
     void Fall() 
     {
+        animator.SetFloat("Level Fall", transform.position.y);
         if (transform.position.y < -1)
         {
             PlayAmimationBool("Die", true);
+            die = true;
         }
         else
         {
             PlayAmimationBool("Die", false);
+            die = false;
         }
     }
 

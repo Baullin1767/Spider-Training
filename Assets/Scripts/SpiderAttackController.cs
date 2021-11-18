@@ -18,6 +18,7 @@ public class SpiderAttackController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        animator.SetBool("Can Move", true);
         if (characterController.isGrounded)
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -40,7 +41,6 @@ public class SpiderAttackController : MonoBehaviour
 
     }
 
-    public void CanMove(){ animator.SetBool("Can Move", true); }
     public void CanNotMove(){ animator.SetBool("Can Move", false); }
 
     public void Attack() { PlayAmimationBool("Attack", false); }
@@ -49,7 +49,6 @@ public class SpiderAttackController : MonoBehaviour
     public void Jump() { PlayAmimationBool("Jump", false); }
     public void Push() 
     { 
-        PlayAmimationBool("Push", false);
         controller.Push();
     }
 
